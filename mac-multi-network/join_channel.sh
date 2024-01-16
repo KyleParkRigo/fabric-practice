@@ -47,12 +47,12 @@ function setPeer() {
     export CORE_PEER_TLS_ROOTCERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${PEER_NUM}.org1.example.com/tls/ca.crt
     export CORE_PEER_ID=peer${PEER_NUM}.org1.example.com
     # tls
-    export CORE_PEER_ADDRESS=mdl1.peer${PEER_NUM}.org1.example.com:${PEER_PORT}
+    export CORE_PEER_ADDRESS=chN.peer${PEER_NUM}.org1.example.com:${PEER_PORT}
     export CORE_PEER_LISTENADDRESS="0.0.0.0":${PEER_PORT}
-    export CORE_PEER_CHAINCODEADDRESS=mdl1.peer${PEER_NUM}.org1.example.com:${PEER_CHAINCODE_PORT}
+    export CORE_PEER_CHAINCODEADDRESS=chN.peer${PEER_NUM}.org1.example.com:${PEER_CHAINCODE_PORT}
     export CORE_PEER_CHAINCODELISTENADDRESS="0.0.0.0":${PEER_CHAINCODE_PORT}
-    export CORE_PEER_GOSSIP_BOOTSTRAP=mdl1.peer${PEER_NUM}.org1.example.com:${PEER_PORT}
-    export CORE_PEER_GOSSIP_EXTERNALENDPOINT=mdl1.peer${PEER_NUM}.org1.example.com:${PEER_PORT}
+    export CORE_PEER_GOSSIP_BOOTSTRAP=chN.peer${PEER_NUM}.org1.example.com:${PEER_PORT}
+    export CORE_PEER_GOSSIP_EXTERNALENDPOINT=chN.peer${PEER_NUM}.org1.example.com:${PEER_PORT}
     export CORE_PEER_LOCALMSPID="Org1MSP"
     export CORE_OPERATIONS_LISTENADDRESS="0.0.0.0":${PEER_LISTEN_PORT}
     export CORE_PEER_FILESYSTEMPATH="${TEST_NETWORK_HOME}/production/peers/peer${PEER_NUM}.org1.example.com"

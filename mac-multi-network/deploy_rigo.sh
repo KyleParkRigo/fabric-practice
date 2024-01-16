@@ -5,7 +5,7 @@ export LOG_DIR="${TEST_NETWORK_HOME}/log"
 export FABRIC_CFG_PATH=${TEST_NETWORK_HOME}/config/peer
 
 # # tls
-# export CORE_PEER_ADDRESS=mdl1.peer0.org1.example.com:7051
+# export CORE_PEER_ADDRESS=chN.peer0.org1.example.com:7051
 export CORE_PEER_TLS_ENABLED=true
 export CORE_PEER_MSPCONFIGPATH="${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp"
 # export CORE_PEER_TLS_CERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.crt
@@ -49,16 +49,16 @@ function deployChaincode() {
     for var in {0..2}; do
         PEER_PORT=$(((($var + 7) * 1000) + 51))
         # tls
-        export CORE_PEER_ADDRESS=mdl1.peer${var}.org1.example.com:${PEER_PORT}
+        export CORE_PEER_ADDRESS=chN.peer${var}.org1.example.com:${PEER_PORT}
         export CORE_PEER_TLS_CERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/server.crt
         export CORE_PEER_TLS_KEY_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/server.key
         export CORE_PEER_TLS_ROOTCERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/ca.crt
 
         # export CORE_PEER_LISTENADDRESS="0.0.0.0":${PEER_PORT}
-        # export CORE_PEER_CHAINCODEADDRESS=mdl1.peer${PEER_NUM}.org1.example.com:${PEER_CHAINCODE_PORT}
+        # export CORE_PEER_CHAINCODEADDRESS=chN.peer${PEER_NUM}.org1.example.com:${PEER_CHAINCODE_PORT}
         # export CORE_PEER_CHAINCODELISTENADDRESS="0.0.0.0":${PEER_CHAINCODE_PORT}
-        # export CORE_PEER_GOSSIP_BOOTSTRAP=mdl1.peer${PEER_NUM}.org1.example.com:${PEER_PORT}
-        # export CORE_PEER_GOSSIP_EXTERNALENDPOINT=mdl1.peer${PEER_NUM}.org1.example.com:${PEER_PORT}
+        # export CORE_PEER_GOSSIP_BOOTSTRAP=chN.peer${PEER_NUM}.org1.example.com:${PEER_PORT}
+        # export CORE_PEER_GOSSIP_EXTERNALENDPOINT=chN.peer${PEER_NUM}.org1.example.com:${PEER_PORT}
         export CORE_PEER_LOCALMSPID="Org1MSP"
         # export CORE_OPERATIONS_LISTENADDRESS="0.0.0.0":${PEER_LISTEN_PORT}
 
@@ -84,7 +84,7 @@ function deployChaincode() {
     for var in {0..0}; do
         PEER_PORT=$(((($var + 7) * 1000) + 51))
         # tls
-        export CORE_PEER_ADDRESS=mdl1.peer${var}.org1.example.com:${PEER_PORT}
+        export CORE_PEER_ADDRESS=chN.peer${var}.org1.example.com:${PEER_PORT}
         export CORE_PEER_TLS_CERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/server.crt
         export CORE_PEER_TLS_KEY_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/server.key
         export CORE_PEER_TLS_ROOTCERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/ca.crt
@@ -100,7 +100,7 @@ function deployChaincode() {
 
         echo ${PACKAGE_ID}
         set -x
-        ${BIN_DIR}/peer lifecycle chaincode approveformyorg -o orderer0.example.com:7050 --ordererTLSHostnameOverride mdl1.orderer0.example.com --tls --cafile $ORDERER_CA $PEER_CONN_PARMS --channelID ${CHANNEL_NAME} --name ${TOKEN_NAME} --version ${CHAINCODE_VERSION} --package-id ${PACKAGE_ID} --sequence ${CHAINCODE_SEQUENCE} ${CHAINCODE_INIT_REQUIRED} ${CHAINCODE_END_POLICY} ${CHAINCODE_COLL_CONFIG} >&${LOG_PATH}
+        ${BIN_DIR}/peer lifecycle chaincode approveformyorg -o orderer0.example.com:7050 --ordererTLSHostnameOverride chN.orderer0.example.com --tls --cafile $ORDERER_CA $PEER_CONN_PARMS --channelID ${CHANNEL_NAME} --name ${TOKEN_NAME} --version ${CHAINCODE_VERSION} --package-id ${PACKAGE_ID} --sequence ${CHAINCODE_SEQUENCE} ${CHAINCODE_INIT_REQUIRED} ${CHAINCODE_END_POLICY} ${CHAINCODE_COLL_CONFIG} >&${LOG_PATH}
         res=$?
         { set +x; } 2>/dev/null
         cat ${LOG_PATH}
@@ -112,7 +112,7 @@ function deployChaincode() {
     for var in {0..2}; do
         PEER_PORT=$(((($var + 7) * 1000) + 51))
         # tls
-        export CORE_PEER_ADDRESS=mdl1.peer${var}.org1.example.com:${PEER_PORT}
+        export CORE_PEER_ADDRESS=chN.peer${var}.org1.example.com:${PEER_PORT}
         export CORE_PEER_TLS_CERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/server.crt
         export CORE_PEER_TLS_KEY_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/server.key
         export CORE_PEER_TLS_ROOTCERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/ca.crt
@@ -148,7 +148,7 @@ function deployChaincode() {
     for var in {0..0}; do
         PEER_PORT=$(((($var + 7) * 1000) + 51))
         # tls
-        export CORE_PEER_ADDRESS=mdl1.peer${var}.org1.example.com:${PEER_PORT}
+        export CORE_PEER_ADDRESS=chN.peer${var}.org1.example.com:${PEER_PORT}
         export CORE_PEER_TLS_CERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/server.crt
         export CORE_PEER_TLS_KEY_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/server.key
         export CORE_PEER_TLS_ROOTCERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/ca.crt
@@ -157,7 +157,7 @@ function deployChaincode() {
         # peer (if join was successful), let's supply it directly as we know
         # it using the "-o" option
         set -x
-        ${BIN_DIR}/peer lifecycle chaincode commit -o orderer0.example.com:7050 --ordererTLSHostnameOverride mdl1.orderer0.example.com --tls --cafile $ORDERER_CA $PEER_CONN_PARMS --channelID ${CHANNEL_NAME} --name ${TOKEN_NAME} --version ${CHAINCODE_VERSION} --sequence ${CHAINCODE_SEQUENCE} ${CHAINCODE_INIT_REQUIRED} ${CHAINCODE_END_POLICY} ${CHAINCODE_COLL_CONFIG} >&${LOG_PATH}
+        ${BIN_DIR}/peer lifecycle chaincode commit -o orderer0.example.com:7050 --ordererTLSHostnameOverride chN.orderer0.example.com --tls --cafile $ORDERER_CA $PEER_CONN_PARMS --channelID ${CHANNEL_NAME} --name ${TOKEN_NAME} --version ${CHAINCODE_VERSION} --sequence ${CHAINCODE_SEQUENCE} ${CHAINCODE_INIT_REQUIRED} ${CHAINCODE_END_POLICY} ${CHAINCODE_COLL_CONFIG} >&${LOG_PATH}
         res=$?
         { set +x; } 2>/dev/null
         cat ${LOG_PATH}

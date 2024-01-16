@@ -37,9 +37,9 @@ Organizations:
     # OrdererEndpoints is a list of all orderers this org runs which clients
     # and peers may to connect to to push transactions and receive blocks respectively.
     OrdererEndpoints:
-      - mdl1.orderer0.example.com:7050
-      # - mdl1.orderer1.example.com:8050
-      # - mdl1.orderer2.example.com:9050
+      - chN.orderer0.example.com:7050
+      - chN.orderer1.example.com:8050
+      - chN.orderer2.example.com:9050
 
   - &Org1
     Name: Org1MSP
@@ -324,18 +324,18 @@ Orderer: &OrdererDefaults
     # a subset of the host:port items enumerated in this list should be
     # replicated under the Orderer.Addresses key above.
     Consenters:
-      - Host: mdl1.orderer0.example.com
+      - Host: chN.orderer0.example.com
         Port: 7050
         ClientTLSCert: ../../organizations/ordererOrganizations/example.com/orderers/orderer0.example.com/tls/server.crt
         ServerTLSCert: ../../organizations/ordererOrganizations/example.com/orderers/orderer0.example.com/tls/server.crt
-      # - Host: mdl1.orderer1.example.com
-      #   Port: 8050
-      #   ClientTLSCert: ../../organizations/ordererOrganizations/example.com/orderers/orderer1.example.com/tls/server.crt
-      #   ServerTLSCert: ../../organizations/ordererOrganizations/example.com/orderers/orderer1.example.com/tls/server.crt
-      # - Host: mdl1.orderer2.example.com
-      #   Port: 9050
-      #   ClientTLSCert: ../../organizations/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
-      #   ServerTLSCert: ../../organizations/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
+      - Host: chN.orderer1.example.com
+        Port: 8050
+        ClientTLSCert: ../../organizations/ordererOrganizations/example.com/orderers/orderer1.example.com/tls/server.crt
+        ServerTLSCert: ../../organizations/ordererOrganizations/example.com/orderers/orderer1.example.com/tls/server.crt
+      - Host: chN.orderer2.example.com
+        Port: 9050
+        ClientTLSCert: ../../organizations/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
+        ServerTLSCert: ../../organizations/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
 
     # Options to be specified for all the etcd/raft nodes. The values here
     # are the defaults for all new channels and can be modified on a

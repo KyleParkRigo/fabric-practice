@@ -19,7 +19,7 @@ function setAnchorPeer() {
 
     # fetchChannelConfig
     set -x
-    ${BIN_DIR}/peer channel fetch config ${TEST_NETWORK_HOME}/channel-artifacts/${CHANNEL_NAME}/config_block.pb -o orderer0.example.com:7050 --ordererTLSHostnameOverride mdl1.orderer0.example.com -c $CHANNEL_NAME --tls --cafile $ORDERER_CA
+    ${BIN_DIR}/peer channel fetch config ${TEST_NETWORK_HOME}/channel-artifacts/${CHANNEL_NAME}/config_block.pb -o orderer0.example.com:7050 --ordererTLSHostnameOverride chN.orderer0.example.com -c $CHANNEL_NAME --tls --cafile $ORDERER_CA
     { set +x; } 2>/dev/null
 
     set -x
@@ -43,7 +43,7 @@ function setAnchorPeer() {
     { set +x; } 2>/dev/null
 
     # updateAnchorPeer
-    ${BIN_DIR}/peer channel update -o orderer0.example.com:7050 --ordererTLSHostnameOverride mdl1.orderer0.example.com -c $CHANNEL_NAME -f ${TEST_NETWORK_HOME}/channel-artifacts/${CHANNEL_NAME}/${CORE_PEER_LOCALMSPID}anchors.tx --tls --cafile $ORDERER_CA >&${LOG_DIR}/${CHANNEL_NAME}.log
+    ${BIN_DIR}/peer channel update -o orderer0.example.com:7050 --ordererTLSHostnameOverride chN.orderer0.example.com -c $CHANNEL_NAME -f ${TEST_NETWORK_HOME}/channel-artifacts/${CHANNEL_NAME}/${CORE_PEER_LOCALMSPID}anchors.tx --tls --cafile $ORDERER_CA >&${LOG_DIR}/${CHANNEL_NAME}.log
     res=$?
     cat ${LOG_DIR}/${CHANNEL_NAME}.log
 }

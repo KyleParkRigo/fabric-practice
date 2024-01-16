@@ -14,7 +14,7 @@ function query() {
         PEER_PORT=$(((($var + 7) * 1000) + 51))
 
         export CORE_PEER_MSPCONFIGPATH="${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp"
-        export CORE_PEER_ADDRESS=mdl1.peer${var}.org1.example.com:${PEER_PORT}
+        export CORE_PEER_ADDRESS=chN.peer${var}.org1.example.com:${PEER_PORT}
         export CORE_PEER_TLS_CERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/server.crt
         export CORE_PEER_TLS_KEY_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/server.key
         export CORE_PEER_TLS_ROOTCERT_FILE=${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls/ca.crt
@@ -33,7 +33,7 @@ function query() {
     param="{\"Args\":[\"TestMdlSdkV3\",\"${msg}\",\"${pub}\",\"${sig}\"]}"
 
     set -x
-    ${BIN_DIR}/peer chaincode query -o orderer0.example.com:7050 --ordererTLSHostnameOverride mdl1.orderer0.example.com --tls --cafile $ORDERER_CA $PEER_CONN_PARMS -C ${CHANNEL_NAME} -n ${CHAINCODE_NAME} -c $param >&${LOG_DIR}/test.log
+    ${BIN_DIR}/peer chaincode query -o orderer0.example.com:7050 --ordererTLSHostnameOverride chN.orderer0.example.com --tls --cafile $ORDERER_CA $PEER_CONN_PARMS -C ${CHANNEL_NAME} -n ${CHAINCODE_NAME} -c $param >&${LOG_DIR}/test.log
     { set +x; } 2>/dev/null
 
     cat ${LOG_DIR}/test.log

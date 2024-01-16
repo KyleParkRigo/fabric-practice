@@ -46,7 +46,7 @@ function createChannel() {
     while [ $rc -ne 0 -a $COUNTER -lt $MAX_RETRY ]; do
         sleep $DELAY
         set -x
-        ${BIN_DIR}/peer channel create -o orderer0.example.com:7050 --ordererTLSHostnameOverride mdl1.orderer0.example.com -c $CHANNEL_NAME -f ${TEST_NETWORK_HOME}/channel-artifacts/${CHANNEL_NAME}.tx --outputBlock ${TEST_NETWORK_HOME}/channel-artifacts/${CHANNEL_NAME}.block --tls --cafile $ORDERER_CA >&${LOG_DIR}/${CHANNEL_NAME}.log
+        ${BIN_DIR}/peer channel create -o orderer0.example.com:7050 --ordererTLSHostnameOverride chN.orderer0.example.com -c $CHANNEL_NAME -f ${TEST_NETWORK_HOME}/channel-artifacts/${CHANNEL_NAME}.tx --outputBlock ${TEST_NETWORK_HOME}/channel-artifacts/${CHANNEL_NAME}.block --tls --cafile $ORDERER_CA >&${LOG_DIR}/${CHANNEL_NAME}.log
         res=$?
         { set +x; } 2>/dev/null
         let rc=$res

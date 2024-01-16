@@ -41,13 +41,13 @@ function createOrderer() {
 
         # get msp
         set -x
-        ${BIN_DIR}/fabric-ca-client enroll -u https://orderer${var}:orderer${var}pw@ca:7054 --caname ca -M ${TEST_NETWORK_HOME}/organizations/ordererOrganizations/example.com/orderers/orderer${var}.example.com/msp --csr.hosts mdl1.orderer${var}.example.com --csr.hosts localhost --tls.certfiles ${TEST_NETWORK_HOME}/organizations/fabric-ca-server/tls-cert.pem
+        ${BIN_DIR}/fabric-ca-client enroll -u https://orderer${var}:orderer${var}pw@ca:7054 --caname ca -M ${TEST_NETWORK_HOME}/organizations/ordererOrganizations/example.com/orderers/orderer${var}.example.com/msp --csr.hosts chN.orderer${var}.example.com --csr.hosts localhost --tls.certfiles ${TEST_NETWORK_HOME}/organizations/fabric-ca-server/tls-cert.pem
         { set +x; } 2>/dev/null
         cp ${TEST_NETWORK_HOME}/organizations/ordererOrganizations/example.com/msp/config.yaml ${TEST_NETWORK_HOME}/organizations/ordererOrganizations/example.com/orderers/orderer${var}.example.com/msp/config.yaml
 
         # get tls
         set -x
-        ${BIN_DIR}/fabric-ca-client enroll -u https://orderer${var}:orderer${var}pw@ca:7054 --caname ca -M ${TEST_NETWORK_HOME}/organizations/ordererOrganizations/example.com/orderers/orderer${var}.example.com/tls --enrollment.profile tls --csr.hosts mdl1.orderer${var}.example.com --csr.hosts localhost --tls.certfiles ${TEST_NETWORK_HOME}/organizations/fabric-ca-server/tls-cert.pem
+        ${BIN_DIR}/fabric-ca-client enroll -u https://orderer${var}:orderer${var}pw@ca:7054 --caname ca -M ${TEST_NETWORK_HOME}/organizations/ordererOrganizations/example.com/orderers/orderer${var}.example.com/tls --enrollment.profile tls --csr.hosts chN.orderer${var}.example.com --csr.hosts localhost --tls.certfiles ${TEST_NETWORK_HOME}/organizations/fabric-ca-server/tls-cert.pem
         { set +x; } 2>/dev/null
 
         # # make crt files

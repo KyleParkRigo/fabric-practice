@@ -44,13 +44,13 @@ function createOrg1() {
 
         # get msp
         set -x
-        ${BIN_DIR}/fabric-ca-client enroll -u https://peer${var}:peer${var}pw@ca:7054 --caname ca -M ${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/msp --csr.hosts mdl1.peer${var}.org1.example.com --csr.hosts localhost --tls.certfiles ${TEST_NETWORK_HOME}/organizations/${Org1_address}
+        ${BIN_DIR}/fabric-ca-client enroll -u https://peer${var}:peer${var}pw@ca:7054 --caname ca -M ${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/msp --csr.hosts chN.peer${var}.org1.example.com --csr.hosts localhost --tls.certfiles ${TEST_NETWORK_HOME}/organizations/${Org1_address}
         { set +x; } 2>/dev/null
         cp ${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/msp/config.yaml ${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/msp/config.yaml
 
         # get tls
         set -x
-        ${BIN_DIR}/fabric-ca-client enroll -u https://peer${var}:peer${var}pw@ca:7054 --caname ca -M ${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls --enrollment.profile tls --csr.hosts mdl1.peer${var}.org1.example.com --csr.hosts localhost --tls.certfiles ${TEST_NETWORK_HOME}/organizations/${Org1_address}
+        ${BIN_DIR}/fabric-ca-client enroll -u https://peer${var}:peer${var}pw@ca:7054 --caname ca -M ${TEST_NETWORK_HOME}/organizations/peerOrganizations/org1.example.com/peers/peer${var}.org1.example.com/tls --enrollment.profile tls --csr.hosts chN.peer${var}.org1.example.com --csr.hosts localhost --tls.certfiles ${TEST_NETWORK_HOME}/organizations/${Org1_address}
         { set +x; } 2>/dev/null
 
         # # make crt files
